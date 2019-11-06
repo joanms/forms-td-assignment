@@ -50,7 +50,9 @@
             name="password"
             class="form-control"
             ngModel
-            required>
+            required
+            #password="ngModel">
+          <span class="help-block" *ngIf="!password.valid && password.touched">Please enter a valid password.</span>
       </div> <!--End of password field-->
       <button 
       class="btn btn-default"
