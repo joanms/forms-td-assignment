@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="row">
-    <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
       <div class="form-group">
         <label for="email">Email Address</label>
           <input 
@@ -54,6 +54,7 @@
             #password="ngModel">
           <span class="help-block" *ngIf="!password.valid && password.touched">Please enter a valid password.</span>
       </div> <!--End of password field-->
+      <p *ngIf="!signupForm.valid && signupForm.touched">Please enter valid data.</p>
       <button 
       class="btn btn-default"
       type="submit">Submit</button>
