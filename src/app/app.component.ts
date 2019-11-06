@@ -16,10 +16,7 @@ export class AppComponent {
   };
   submitted = false;
 
-  onSubmit() {
-    this.submitted = true;
-    this.user.email = this.signupForm.value.userData.email;
-    this.user.subscription = this.signupForm.value.userData.subscription;
-    this.user.password = this.signupForm.value.userData.password;
+  onSubmit(form: NgForm) {
+    console.log(form);
   }
 }
