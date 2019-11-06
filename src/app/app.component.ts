@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @ViewChild('f', { static: false }) signupForm: NgForm;
+  @ViewChild('signupForm', { static: false }) newForm: NgForm;
   defaultSubscription = 'advanced';
   user = {
     email: '',
@@ -16,7 +16,7 @@ export class AppComponent {
   };
   submitted = false;
 
-  onSubmit(form: NgForm) {
-    console.log(form);
+  onSubmit() {
+    console.log(this.newForm.value);
   }
 }

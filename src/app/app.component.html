@@ -6,6 +6,7 @@
            2) A Dropdown which allows the user to select from three different Subscriptions ("Basic", "Advanced", "Pro")
               Set "Advanced" as Default
            3) A Password field (should not be empty)
+           field)
            4) A Submit Button
 
            Display a warning message if the Form is invalid AND was touched. Display a warning message below each input if it's invalid.
@@ -13,52 +14,47 @@
            Upon submitting the form, you should simply print the Value of the Form to the Console.
            Optionally, display it in your template.
       -->
-    </div>
-  </div>
-  <div class="row">
-    <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
-      <div class="form-group">
-        <label for="email">Email Address</label>
-          <input 
-          type="email"
-          id="email"
-          ngModel
-          name="email"
-          class="form-control"
-          required
-          email
-          #email ="ngModel">
-        <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email address.</span>
-      </div> <!--End of email field-->
-      <div class="form-group">
-        <label for="subscription">Please Select a Subscription</label>
-          <select 
-            id="subscription"
+      <form #signupForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Mail</label>
+          <input
+            type="email"
+            id="email"
+            ngModel
+            name="email"
+            required
+            email
             class="form-control"
+            #email="ngModel">
+          <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email address.</span>
+        </div>
+        <div class="form-group">
+          <label for="subscription">Please Select a Subscription</label>
+          <select
+            name="subscription"
+            id="subscription"
             [ngModel]="defaultSubscription"
-            name="subscription">
+            class="form-control">
             <option value="basic">Basic</option>
             <option value="advanced">Advanced</option>
             <option value="pro">Pro</option>
           </select>
-      </div> <!--End of subscription dropdown-->
-      <div class="form-group">
-        <label for="password">Password</label>
-          <input 
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
             type="password"
             id="password"
             name="password"
-            class="form-control"
             ngModel
             required
+            class="form-control"
             #password="ngModel">
           <span class="help-block" *ngIf="!password.valid && password.touched">Please enter a valid password.</span>
-      </div> <!--End of password field-->
-      <p *ngIf="!signupForm.valid && signupForm.touched">Please enter valid data.</p>
-      <button 
-      class="btn btn-default"
-      type="submit">Submit</button>
-      <p *ngIf="!userData.valid && userData.touched"></p>
-    </form>
+        </div>
+        <p *ngIf="!signupForm.valid && signupForm.touched">Please enter valid data</p>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
   </div>
 </div>
